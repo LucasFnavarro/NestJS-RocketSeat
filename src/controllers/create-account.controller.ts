@@ -4,6 +4,7 @@ import { PrismaService } from "src/prisma/prisma.service";
 import { hash } from "bcryptjs";
 import { z } from "zod";
 import { ZodValidationPipe } from "src/pipes/zod-validation-pipe";
+import { ConfigService } from "@nestjs/config";
 
 const createAccountBodySchema = z.object({
   name: z.string(),
@@ -15,7 +16,10 @@ type CreateAccountBodySchema = z.infer<typeof createAccountBodySchema>;
 
 @Controller("/accounts")
 export class CreateAccountController {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private config: ConfigService
+  ) {}
 
   @Post()
   @HttpCode(201)
