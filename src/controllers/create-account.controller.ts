@@ -16,10 +16,7 @@ type CreateAccountBodySchema = z.infer<typeof createAccountBodySchema>;
 
 @Controller("/accounts")
 export class CreateAccountController {
-  constructor(
-    private prisma: PrismaService,
-    private config: ConfigService
-  ) {}
+  constructor(private prisma: PrismaService, private config: ConfigService) {}
 
   @Post()
   @HttpCode(201)
