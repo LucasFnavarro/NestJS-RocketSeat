@@ -24,6 +24,8 @@ beforeAll(async () => {
 
   process.env.DATABASE_URL = databaseURL;
 
+  // console.log(databaseURL);
+
   execSync("npx prisma db push");
   // execSync("npx prisma db push");
 });
